@@ -10,11 +10,13 @@ public class PairGenerator implements Generator<Pair<Integer, Integer>> {
     private List<Pair<Integer, Integer>> output;
     private static final int count = 100_000;
     private final double[][] probArr;
+    private final double[][] firstArr;
     private int[][] countProbability;
     private final int width;
     private final int height;
 
     public PairGenerator(double[][] probArr) {
+        firstArr = Arrays.stream(probArr).map(double[]::clone).toArray(double[][]::new);
         rescale(probArr);
         this.probArr = probArr;
         width = probArr[0].length;
