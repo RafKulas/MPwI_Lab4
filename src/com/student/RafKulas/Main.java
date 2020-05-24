@@ -3,6 +3,7 @@ package com.student.RafKulas;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         double[][] basicProbability = {
                 {0,    0,     0.1,  0.1 },
@@ -29,7 +30,6 @@ public class Main {
             System.out.println("Something went wrong, choosing default one");
             pg = new PairGenerator(basicProbability);
         }
-
-        pg.generate();
+        pg.generate().printResult();
     }
 }

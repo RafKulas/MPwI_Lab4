@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ArraysFunctions {
-    static double round(double what, int precision) {
+    static public double round(double what, int precision) {
         if (precision < 0){
             throw new IllegalArgumentException();
         }
@@ -15,7 +15,7 @@ public class ArraysFunctions {
         return what;
     }
 
-    static void fillRandomArray(double bound, int height, int width, double[][] arr) {
+    static public void fillRandomArray(double bound, int height, int width, double[][] arr) {
         Random random = new Random();
         double left = 1.0;
         for(int i = 0; i<height; i++) {
@@ -30,7 +30,7 @@ public class ArraysFunctions {
         }
     }
 
-    static double[][] generateArray() {
+    static public double[][] generateArray() {
         Scanner in = new Scanner(System.in);
         System.out.println("Firstly set amount of rows and columns.\n" +
                 "Warning: entering wrong parameters results in an attempt to create an array again.");
@@ -68,6 +68,30 @@ public class ArraysFunctions {
         catch (Exception e) {
             in.next();
             return generateArray();
+        }
+    }
+
+    static public void printArray(double[][] arr) {
+        int height = arr.length;
+        int width = arr[0].length;
+        for (double[] doubles : arr) {
+            System.out.print("[");
+            for (int j = 0; j < width; j++) {
+                System.out.printf("%.3f ", doubles[j]);
+            }
+            System.out.println("\b]");
+        }
+    }
+
+    static void printArray(int[][] arr) {
+        int height = arr.length;
+        int width = arr[0].length;
+        for (int[] ints : arr) {
+            System.out.print("[");
+            for (int j = 0; j < width; j++) {
+                System.out.printf("%5d ", ints[j]);
+            }
+            System.out.println("\b]");
         }
     }
 }
